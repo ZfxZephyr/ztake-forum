@@ -1,0 +1,27 @@
+server:
+  port: 3000
+
+spring:
+  application:
+    name: ztake-service
+  datasource:
+    url: jdbc:mysql://localhost:3306/ztake?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai
+    username: root
+    password: hdty1234          # 按本机 ServBay MySQL 实际密码修改
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  sql:
+    init:
+      mode: always            # 启动时执行 schema.sql（幂等建表 + 种子数据）
+  jackson:
+    default-property-inclusion: non_null
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      id-type: assign_id      # 雪花 ID，返回前端为字符串
+logging:
+  level:
+    com.ztake.service: info

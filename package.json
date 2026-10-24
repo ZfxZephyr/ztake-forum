@@ -1,18 +1,17 @@
 {
   "name": "ztake-forum",
   "private": true,
-  "version": "0.2.0",
-  "description": "ztake — 现代简约论坛（Vue 3 前端 + Express 后端 monorepo）",
-  "workspaces": [
-    "ztake-ui",
-    "ztake-service"
-  ],
+  "version": "0.3.0",
+  "description": "ztake — 现代简约论坛（Vue 3 前端 + Spring Boot 后端 monorepo）",
   "scripts": {
-    "dev": "npm run dev --workspace ztake-ui & npm run dev --workspace ztake-service",
     "dev:fe": "npm run dev --workspace ztake-ui",
-    "dev:be": "npm run dev --workspace ztake-service",
+    "dev:be": "cd ztake-service && mvn spring-boot:run",
     "build": "npm run build --workspace ztake-ui",
-    "start": "npm run start --workspace ztake-service",
+    "build:be": "cd ztake-service && mvn -q package",
+    "start:be": "cd ztake-service && mvn spring-boot:run",
     "preview": "npm run preview --workspace ztake-ui"
-  }
+  },
+  "workspaces": [
+    "ztake-ui"
+  ]
 }

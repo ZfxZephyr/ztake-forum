@@ -1,8 +1,8 @@
 # ztake — 现代简约论坛
 
-一套现代化、极简风格的社区论坛，**Vue 3 + Vite 前端 + Express 后端** 的 monorepo 工程。覆盖社区产品全链路：首页信息流、帖子详情与评论、发帖编辑器、登录注册、个人主页、通知中心、搜索与设置，站内导航全部路由化打通，后端提供完整 REST API。
+一套现代化、极简风格的社区论坛，**Vue 3 + Vite 前端 + Spring Boot / MyBatis Plus / MySQL 后端** 的 monorepo 工程。覆盖社区产品全链路：首页信息流、帖子详情与评论、发帖编辑器、登录注册、个人主页、通知中心、搜索与设置，站内导航全部路由化打通，后端提供完整 REST API。
 
-![Tech](https://img.shields.io/badge/Vue-3.5-42b883) ![Vite](https://img.shields.io/badge/Vite-6-646cff) ![Express](https://img.shields.io/badge/Express-4-000000) ![License](https://img.shields.io/badge/license-MIT-green)
+![Tech](https://img.shields.io/badge/Vue-3.5-42b883) ![Vite](https://img.shields.io/badge/Vite-6-646cff) ![Spring%20Boot](https://img.shields.io/badge/Spring%20Boot-3.3-6DB33F) ![MySQL](https://img.shields.io/badge/MySQL-8-4479A1) ![License](https://img.shields.io/badge/license-MIT-green)
 
 ## ✨ 设计理念
 
@@ -57,7 +57,7 @@ ztake-forum/
 │   │   └── styles/main.css   # 设计系统（CSS 变量 + 组件样式）
 │   ├── index.html
 │   └── vite.config.js        # 含 /api 代理
-├── ztake-service/            # Express 4 后端（详见 ztake-service/README.md）
+├── ztake-service/            # Spring Boot 后端（详见 ztake-service/README.md）
 │   └── src/
 │       ├── server.js         # 应用入口
 │       ├── routes/index.js   # REST API 路由
