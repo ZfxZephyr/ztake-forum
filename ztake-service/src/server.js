@@ -22,5 +22,5 @@ app.get('/health', (_req, res) => res.json({ status: 'up', service: 'ztake-backe
 app.use((_req, res) => res.status(404).json({ code: 404, message: 'not found' }))
 
 app.listen(PORT, () => {
-  console.log(`ztake backend listening on http://localhost:${PORT}`)
+  console.log(`ztake service listening on http://localhost:${PORT}`)
 })

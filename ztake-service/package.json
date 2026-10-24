@@ -1,5 +1,5 @@
 {
-  "name": "@ztake/backend",
+  "name": "@ztake/service",
   "private": true,
   "version": "0.1.0",
   "type": "module",

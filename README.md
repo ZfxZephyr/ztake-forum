@@ -39,14 +39,14 @@ npm run build            # 构建前端 → frontend/dist
 npm start                # 启动后端生产服务
 ```
 
-开发模式下前端 `/api/*` 请求自动代理到后端 `http://localhost:3000`（见 `frontend/vite.config.js`）。后端接口文档见 [`backend/README.md`](backend/README.md)。
+开发模式下前端 `/api/*` 请求自动代理到后端 `http://localhost:3000`（见 `ztake-ui/vite.config.js`）。后端接口文档见 [`ztake-service/README.md`](ztake-service/README.md)。
 
 ## 📁 项目结构
 
 ```
 ztake-forum/
 ├── package.json              # monorepo 工作区（npm workspaces）
-├── frontend/                 # Vue 3 前端
+├── ztake-ui/                 # Vue 3 前端
 │   ├── public/favicon.svg    # 品牌 favicon
 │   ├── src/
 │   │   ├── assets/           # Logo（标准版 / 单色版）
@@ -57,7 +57,7 @@ ztake-forum/
 │   │   └── styles/main.css   # 设计系统（CSS 变量 + 组件样式）
 │   ├── index.html
 │   └── vite.config.js        # 含 /api 代理
-├── backend/                  # Express 4 后端（详见 backend/README.md）
+├── ztake-service/            # Express 4 后端（详见 ztake-service/README.md）
 │   └── src/
 │       ├── server.js         # 应用入口
 │       ├── routes/index.js   # REST API 路由
