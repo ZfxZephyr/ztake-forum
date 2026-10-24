@@ -1,8 +1,8 @@
 # ztake — 现代简约论坛
 
-一套现代化、极简风格的社区论坛前端，基于 **Vue 3 + Vite** 构建。覆盖社区产品全链路 UI：首页信息流、帖子详情与评论、发帖编辑器、登录注册、个人主页、通知中心、搜索与设置，站内导航全部路由化打通。
+一套现代化、极简风格的社区论坛，**Vue 3 + Vite 前端 + Express 后端** 的 monorepo 工程。覆盖社区产品全链路：首页信息流、帖子详情与评论、发帖编辑器、登录注册、个人主页、通知中心、搜索与设置，站内导航全部路由化打通，后端提供完整 REST API。
 
-![Tech](https://img.shields.io/badge/Vue-3.5-42b883) ![Vite](https://img.shields.io/badge/Vite-6-646cff) ![Router](https://img.shields.io/badge/vue--router-4-d97757) ![License](https://img.shields.io/badge/license-MIT-green)
+![Tech](https://img.shields.io/badge/Vue-3.5-42b883) ![Vite](https://img.shields.io/badge/Vite-6-646cff) ![Express](https://img.shields.io/badge/Express-4-000000) ![License](https://img.shields.io/badge/license-MIT-green)
 
 ## ✨ 设计理念
 
@@ -30,34 +30,39 @@
 ```bash
 git clone https://github.com/ZfxZephyr/ztake-forum.git
 cd ztake-forum
-npm install
-npm run dev        # 开发环境 http://localhost:5173
-npm run build      # 生产构建 → dist/
-npm run preview    # 本地预览构建产物
+npm install              # 一次性安装前后端依赖（npm workspaces）
+
+npm run dev              # 同时启动前端(5173) + 后端(3000)
+npm run dev:fe           # 仅前端
+npm run dev:be           # 仅后端
+npm run build            # 构建前端 → frontend/dist
+npm start                # 启动后端生产服务
 ```
+
+开发模式下前端 `/api/*` 请求自动代理到后端 `http://localhost:3000`（见 `frontend/vite.config.js`）。后端接口文档见 [`backend/README.md`](backend/README.md)。
 
 ## 📁 项目结构
 
 ```
-forum-vue/
-├── public/
-│   └── favicon.svg              # 品牌 favicon
-├── src/
-│   ├── assets/                  # Logo（标准版 / 单色版）
-│   ├── components/              # 通用组件
-│   │   ├── AppHeader.vue        #   吸顶导航 + 搜索
-│   │   ├── SideNav.vue          #   板块导航
-│   │   ├── PostCard.vue         #   帖子卡片
-│   │   ├── TrendingCard.vue     #   热榜 + 在线状态
-│   │   └── StatsCard.vue        #   社区数据
-│   ├── pages/                   # 8 个功能页面
-│   ├── router/index.js          # 路由配置
-│   ├── data/forum.js            # Mock 数据层（后续可替换为 API）
-│   ├── styles/main.css          # 设计系统（CSS 变量 + 全部组件样式）
-│   ├── App.vue
-│   └── main.js
-├── index.html
-└── vite.config.js
+ztake-forum/
+├── package.json              # monorepo 工作区（npm workspaces）
+├── frontend/                 # Vue 3 前端
+│   ├── public/favicon.svg    # 品牌 favicon
+│   ├── src/
+│   │   ├── assets/           # Logo（标准版 / 单色版）
+│   │   ├── components/       # AppHeader / SideNav / PostCard / TrendingCard / StatsCard
+│   │   ├── pages/            # 8 个功能页面
+│   │   ├── router/index.js   # 路由配置
+│   │   ├── data/forum.js     # Mock 数据层（将逐步替换为 /api 调用）
+│   │   └── styles/main.css   # 设计系统（CSS 变量 + 组件样式）
+│   ├── index.html
+│   └── vite.config.js        # 含 /api 代理
+├── backend/                  # Express 4 后端（详见 backend/README.md）
+│   └── src/
+│       ├── server.js         # 应用入口
+│       ├── routes/index.js   # REST API 路由
+│       └── db.js             # 数据层（内存 Mock，可替换为数据库）
+└── docs/                     # 项目文档（规划中）
 ```
 
 ## 🎨 设计系统速查
