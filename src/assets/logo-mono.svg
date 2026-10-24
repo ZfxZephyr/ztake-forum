@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- 单色版：用于深色背景 / 水印 -->
+  <rect x="2" y="2" width="60" height="60" rx="16" fill="none" stroke="#D97757" stroke-width="4"/>
+  <path d="M18 20h28v7L29 37h17v7H18v-7l17-10H18z" fill="#D97757"/>
+</svg>
